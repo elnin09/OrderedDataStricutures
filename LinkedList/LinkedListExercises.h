@@ -297,6 +297,39 @@ LinkedList<T> LinkedList<T>::merge(const LinkedList<T>& other) const {
   // notice that all of our nodes are created on the heap? The part of the
   // list that we pass back is really small; it just contains two pointers
   // and an int.)
+  auto leftHead = left.head_;
+  auto rightHead = right.head_;
+
+  auto mergedHead = merged.head_;
+
+  while(leftHead || rightHead)
+  {
+     while(leftHead && rightHead)
+     {
+        if(leftHead->data < rightHead->data)
+        {
+            merged.pushBack(leftHead->data);
+            leftHead=leftHead->next;
+        }
+        else
+        {
+            merged.pushBack(rightHead->data);
+            rightHead=rightHead->next;
+        }
+     }
+     while(leftHead)
+     {
+            merged.pushBack(leftHead->data);
+            leftHead=leftHead->next;
+     }
+     while(rightHead)
+     {
+          merged.pushBack(rightHead->data);
+          rightHead=rightHead->next;
+     }
+
+  }
+  
   return merged;
 }
 
