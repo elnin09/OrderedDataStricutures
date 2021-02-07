@@ -1,5 +1,5 @@
 ### Compiling & Testing Code
-make clean && make && ./main
+make clean && make && ./main  
 make clean && make test && ./test
 
 ### Packaging the submission file
